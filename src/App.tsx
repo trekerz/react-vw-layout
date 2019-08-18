@@ -18,6 +18,7 @@ const App: React.FC = () => {
         >
           Learn React
         </a>
+        <div className="banner">react-vw-layout</div>
       </header>
     </div>
   );
