@@ -37,6 +37,9 @@ const postcssCssnext = require('postcss-preset-env');
 const postcssViewportUnits = require('postcss-viewport-units');
 const cssnano = require('cssnano');
 
+// 打包分析器
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 const appPackageJson = require(paths.appPackageJson);
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -555,6 +558,7 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+      isEnvProduction && new BundleAnalyzerPlugin(),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
